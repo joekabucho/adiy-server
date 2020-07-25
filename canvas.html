@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="scream" src="parte.jpg" alt="The Scream" width="600" height="700">
+
+<p>Canvas to fill:</p>
+<canvas id="myCanvas" width="600" height="700"
+style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<p><button onclick="myCanvas()">Convert</button></p>
+
+<script>
+function myCanvas() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("scream");
+  ctx.font = "30px Arial";
+  ctx.drawImage(img,10,10);
+  ctx.fillText("Sample Customer Name",60,50);
+}
+</script>
+
+</body>
+</html>
+
+
