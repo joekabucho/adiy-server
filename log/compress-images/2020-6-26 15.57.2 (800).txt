@@ -1,0 +1,13 @@
+File from: [files/bluehost error.png]
+
+File to: [files/thumbnails/bluehost error.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/bett.jpg]
+
+File to: [files/thumbnails/bett.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT

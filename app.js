@@ -160,11 +160,11 @@ app.get('/stk',access,(req,res)=>{
                 "Timestamp": time,
                 "TransactionType": "CustomerPayBillOnline",
                 "Amount": "1",
-                "PartyA": "254722686271",
+                "PartyA": "254723910813",
                 "PartyB": "174379",
-                "PhoneNumber": "254722686271",
+                "PhoneNumber": "254723910813",
                 "CallBackURL": "http://102.5.140.254:6001/callback",
-                "AccountReference": "ADIY API TEST",
+                "AccountReference": "Adiy.site",
                 "TransactionDesc": "Process Activation"
             }
         },

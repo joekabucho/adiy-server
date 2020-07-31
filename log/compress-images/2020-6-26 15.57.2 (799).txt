@@ -1,0 +1,25 @@
+File from: [files/Apex-Legends-Team-Three-Wallpapers-1080P.jpg]
+
+File to: [files/thumbnails/Apex-Legends-Team-Three-Wallpapers-1080P.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/4k-wallpaper-bay-beach-2213443.jpg]
+
+File to: [files/thumbnails/4k-wallpaper-bay-beach-2213443.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/abby.jpg]
+
+File to: [files/thumbnails/abby.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/animal-animal-photography-animal-portrait-2220336.jpg]
+
+File to: [files/thumbnails/animal-animal-photography-animal-portrait-2220336.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT

@@ -9,11 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^14.0.26",
     "africastalking": "^0.4.3",
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "email-existence": "^0.1.6",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6",
@@ -21,7 +23,8 @@
     "fb": "^2.0.0",
     "gifsicle": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.1",
+    "mongoose": "^5.9.26",
+    "node-restful": "^0.2.6",
     "nodemailer": "^6.4.2",
     "nodemon": "^2.0.4",
     "pdf2html": "^2.5.0",
@@ -31,6 +34,7 @@
     "request": "^2.88.2",
     "rimraf": "^3.0.2",
     "socket.io": "^2.3.0",
+    "stream-chat": "^1.14.0",
     "time-stamp": "^2.2.0"
   },
   "devDependencies": {

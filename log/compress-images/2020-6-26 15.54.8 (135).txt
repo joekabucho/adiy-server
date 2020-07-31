@@ -1,0 +1,7 @@
+File from: [files/4k-wallpaper-bay-beach-2213443.jpg]
+
+File to: [files/thumbnails/4k-wallpaper-bay-beach-2213443.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT

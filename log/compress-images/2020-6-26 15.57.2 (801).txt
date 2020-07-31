@@ -1,0 +1,25 @@
+File from: [files/Full-Colour.jpg]
+
+File to: [files/thumbnails/Full-Colour.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/infinity.png]
+
+File to: [files/thumbnails/infinity.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/crm1.png]
+
+File to: [files/thumbnails/crm1.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/insta.jpg]
+
+File to: [files/thumbnails/insta.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT
