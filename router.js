@@ -3,4 +3,5 @@
     app.use('/api/files', require('./api/files'));
     app.use('/api/cart', require('./api/cart'));
     app.use('/api/chat', require('./api/chats'));
+     app.use('/api/allartworks', require('./api/allartworks'));
 };

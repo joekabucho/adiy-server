@@ -22,7 +22,6 @@ const  request = require('request');
 
 //cors
 app.use(cors());
-app.use('/api', require('./api/artworks/api'));
 app.use(fileUpload());
 // Bordy parser
 app.use(bodyParser.json({limit: '20mb'}));
