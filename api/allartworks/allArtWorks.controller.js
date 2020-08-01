@@ -15,7 +15,6 @@ exports.getAll = (req, res) =>{
     })
 }
 
-
 exports.add = (req, res) =>{
 
     const art ={

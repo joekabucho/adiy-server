@@ -1,0 +1,61 @@
+File from: [files/abby.jpg]
+
+File to: [thumbnails/abby.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/animal-animal-photography-animal-portrait-2220336.jpg]
+
+File to: [thumbnails/animal-animal-photography-animal-portrait-2220336.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/bett.jpg]
+
+File to: [thumbnails/bett.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/Apex-Legends-Team-Three-Wallpapers-1080P.jpg]
+
+File to: [thumbnails/Apex-Legends-Team-Three-Wallpapers-1080P.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/Full-Colour.jpg]
+
+File to: [thumbnails/Full-Colour.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/crm1.png]
+
+File to: [thumbnails/crm1.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/bluehost error.png]
+
+File to: [thumbnails/bluehost error.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/insta.jpg]
+
+File to: [thumbnails/insta.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/infinity.png]
+
+File to: [thumbnails/infinity.png]
+
+Compression algorithm: [pngquant]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\pngquant-bin\vendor\pngquant.exe ENOENTFile from: [files/parte.jpg]
+
+File to: [thumbnails/parte.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT

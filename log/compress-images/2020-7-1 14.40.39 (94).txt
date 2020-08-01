@@ -1,0 +1,13 @@
+File from: [files/pint.jpg]
+
+File to: [thumbnails/pint.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENTFile from: [files/whatsapp.jpg]
+
+File to: [thumbnails/whatsapp.jpg]
+
+Compression algorithm: [mozjpeg]
+
+Description: Error: spawn D:\Adiy\adiy-server\node_modules\mozjpeg\vendor\cjpeg.exe ENOENT

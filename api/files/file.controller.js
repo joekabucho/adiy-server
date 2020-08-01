@@ -7,31 +7,13 @@ const Config = require('../../config/dev');
 const FacebookService = require('../services/facebook.service');
 const pdf2html = require('pdf2html');
 const filesService = require('../services/files.service');
-const compress_images = require("compress-images");
 var rimraf = require("rimraf");
+const jimp = require('jimp');
 
 
 
 
 
-function Compressor() {
-    // rimraf("files/thumbnails/", function() { console.log("done"); });
-
-    compress_images(
-        "files/**/*.{jpg,JPG,jpeg,JPEG,png,gif}",
-        "files/thumbnails/", { compress_force: false, statistic: true, autoupdate: true },
-        false, { jpg: { engine: "mozjpeg", command: ["-quality", "60"] } }, { png: { engine: "pngquant", command: ["--quality=20-50"] } }, { svg: { engine: "svgo", command: "--multipass" } }, {
-            gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] },
-        },
-        function(error, completed, statistic) {
-            console.log("-------------");
-            console.log(error);
-            console.log(completed);
-            console.log(statistic);
-            console.log("-------------");
-        }
-    );
-}
 
 
 exports.upload = (req, res, body) => {
@@ -45,6 +27,18 @@ exports.upload = (req, res, body) => {
         if (err)
             return res.status(500).send(err);
 
+        async function main() {
+            // Read the image.
+            const image = await jimp.read('files/'+ sampleFile.name);
+
+            // Resize the image to width 150 and auto height.
+            await image.resize(300, 300);
+
+            // Save and overwrite the image
+            await image.writeAsync('files/'+'thumbnail_'+ sampleFile.name);
+        }
+        main();
+
         const details = {
             name: sampleFile.name,
             url: Config.Address + '/' + sampleFile.name,
@@ -52,6 +46,7 @@ exports.upload = (req, res, body) => {
             uploadedby: req.body.uploadedby,
             amount: req.body.amount,
             type: req.body.type,
+            thumbnail: 'thumbnail_' + sampleFile.name,
             tags: req.body.tags,
             filename: req.body.namefile,
             date: new Date()
@@ -59,8 +54,6 @@ exports.upload = (req, res, body) => {
         let template = new Templates(details);
         template.save();
         res.status(200).json(details);
-        Compressor();
-
     });
 }
 
