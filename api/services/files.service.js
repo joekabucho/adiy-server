@@ -12,7 +12,13 @@ async function _delete(id) {
     await Templates.deleteOne({_id: id});
 }
 
-module.exports = {delete: _delete };
+async function getOne(user) {
+    return Templates.find({"user":user});
+}
+
+
+
+module.exports = {delete: _delete,getOne };
 
 
 

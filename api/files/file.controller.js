@@ -100,6 +100,7 @@ exports.delete = (req, res, next) => {
         .catch(err => next(err));
 };
 
+
 exports.tohtml = (req, res) => {
     pdf2html.html('sample.pdf', (err, html) => {
         if (err) {
@@ -109,3 +110,8 @@ exports.tohtml = (req, res) => {
         }
     })
 }
+exports.getOne = (req, res, next) => {
+    filesService.getOne(req.params.user)
+        .then(user => user ? res.json(user) : res.sendStatus(404))
+        .catch(err => next(err));
+};
