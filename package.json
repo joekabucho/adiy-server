@@ -18,7 +18,7 @@
     "dotenv": "^8.2.0",
     "email-existence": "^0.1.6",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "express-jwt": "^5.3.1",
     "fb": "^2.0.0",
     "gifsicle": "^5.1.0",
