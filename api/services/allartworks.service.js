@@ -10,7 +10,9 @@ async function getAll() {
     return await AllArtWorks.find({});
 }
 
-
+async function _delete(fileId) {
+    await AllArtWorks.delete({"fileId":fileId});
+}
 // Get One
 async function getOne(fileId) {
     return AllArtWorks.find({"fileId":fileId});
@@ -21,7 +23,7 @@ async function getOne(fileId) {
 
 
 
-module.exports = {  getAll, getOne };
+module.exports = {  delete: _delete,getAll, getOne };
 
 
 

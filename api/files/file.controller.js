@@ -1,3 +1,5 @@
+
+
 const fs = require('fs');
 const readline = require('readline');
 const fileUpload = require('express-fileupload');
@@ -32,7 +34,7 @@ exports.upload = (req, res, body) => {
             const image = await jimp.read('files/'+ sampleFile.name);
 
             // Resize the image to width 150 and auto height.
-            await image.resize(300, 300);
+            await image.resize(jimp.AUTO, jimp.AUTO);
 
             // Save and overwrite the image
             await image.writeAsync('files/'+'thumbnail_'+ sampleFile.name);

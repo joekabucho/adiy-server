@@ -30,8 +30,26 @@ exports.add = (req, res) =>{
             res.status(500).json("An error occured");
         }
         if(result){
+            console.log(result.fileId);
             console.log("Saved");
+            const duplicateFileId = result.fileId;
             res.status(200).json(result);
+            AllArtWorks.find().exec(function(err, result){
+                if(err){
+                    res.status(500).json("An Error Occured")
+                }
+
+
+                const output = result.filter(function(x){return x.fileId===duplicateFileId}); //arr here is you result array
+                if (output.length>0){
+                    console.log("duplicates exist");
+                    console.log(output);
+                }
+                console.log(duplicateFileId);
+                // if(result.fileId===duplicateFileId){
+                //     console.log("duplicate file ID found");
+                // }
+            })
         }
     })
 }
