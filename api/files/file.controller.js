@@ -20,35 +20,12 @@ const jimp = require('jimp');
 
 exports.upload = (req, res, body) => {
 
-    if (Object.keys(req.files).length == 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-    let sampleFile = req.files.sampleFile;
-
-    sampleFile.mv('./files/' + sampleFile.name, function(err) {
-        if (err)
-            return res.status(500).send(err);
-
-        async function main() {
-            // Read the image.
-            const image = await jimp.read('files/'+ sampleFile.name);
-
-            // Resize the image to width 150 and auto height.
-            await image.resize(jimp.AUTO, jimp.AUTO);
-
-            // Save and overwrite the image
-            await image.writeAsync('files/'+'thumbnail_'+ sampleFile.name);
-        }
-        main();
-
         const details = {
-            name: sampleFile.name,
-            url: Config.Address + '/' + sampleFile.name,
+            name: req.body.name,
             user: req.body.user,
             uploadedby: req.body.uploadedby,
             amount: req.body.amount,
             type: req.body.type,
-            thumbnail: 'thumbnail_' + sampleFile.name,
             tags: req.body.tags,
             filename: req.body.namefile,
             date: new Date()
@@ -56,7 +33,6 @@ exports.upload = (req, res, body) => {
         let template = new Templates(details);
         template.save();
         res.status(200).json(details);
-    });
 }
 
 exports.view = (req, res) => {

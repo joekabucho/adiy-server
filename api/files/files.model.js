@@ -9,7 +9,6 @@ const Templates = new Schema({
     uploadedby: {  type: Schema.Types.ObjectId},
     amount:{type: String},
     filename:{type: String},
-    thumbnail:{type: String},
     type:{type: String},
     tags:{type: String},
     date: { type: String },
