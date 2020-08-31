@@ -27,6 +27,7 @@ exports.upload = (req, res, body) => {
             amount: req.body.amount,
             type: req.body.type,
             tags: req.body.tags,
+            url: req.body.url,
             filename: req.body.namefile,
             artworkid:req.body.artworkid,
             date: new Date()
