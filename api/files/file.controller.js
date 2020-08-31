@@ -28,6 +28,7 @@ exports.upload = (req, res, body) => {
             type: req.body.type,
             tags: req.body.tags,
             filename: req.body.namefile,
+            artworkid:req.body.artworkid,
             date: new Date()
         }
         let template = new Templates(details);

@@ -2,12 +2,14 @@ const express = require('express');
 const request = require ('request');
 const bodyParser = require('body-parser');
 const timestamp = require('time-stamp');
+const cors = require('cors');
 
 
 
 const app =express();
 app.use(bodyParser.json());
 
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send("Youre home .Welcome")
@@ -32,7 +34,7 @@ app.get("/register",access,(req,resp)=>{
                 "Authorization": auth
             },
             json: {
-                "ShortCode": "601464",
+                "ShortCode": "150839",
                 "ResponseType": "Complete",
                 "ConfirmationURL": "http://102.5.140.254:6001/confirmation",
                 "ValidationURL": "http://102.5.140.254:6001/validation"
@@ -69,7 +71,7 @@ app.get('/simulate', access, (req, res) => {
                 "Authorization": auth
             },
             json: {
-                "ShortCode": "601464",
+                "ShortCode": "150839",
                 "CommandID": "CustomerPayBillOnline",
                 "Amount": "100",
                 "Msisdn": "254708374149",
@@ -137,14 +139,17 @@ app.post("/result_url",(req,resp)=>{
 
 
 //stk lipa na mpesa
+
 app.get('/stk',access,(req,res)=>{
-    let endpoint ='https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+    let endpoint ='https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+    let phone = req.query.phone;
+    let amount = req.query.amount;
     let auth ='Bearer ' + req.access_token;
 
 
     const time = timestamp('YYYYMMDDHHmmss');
 
-    const password = new Buffer.from('174379' + 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919' + time).toString('base64');
+    const password = new Buffer.from('150839' + '465487bb1823da2a0ab1e1122bcc5998d5c6a95de78a6fbdac616a2801e8270a' + time).toString('base64');
 
 
     request(
@@ -155,17 +160,17 @@ app.get('/stk',access,(req,res)=>{
                "Authorization": auth
             },
             json :{
-                "BusinessShortCode": "174379",
+                "BusinessShortCode": "150839",
                 "Password": password,
                 "Timestamp": time,
                 "TransactionType": "CustomerPayBillOnline",
-                "Amount": "1",
-                "PartyA": "254723910813",
-                "PartyB": "174379",
-                "PhoneNumber": "254723910813",
-                "CallBackURL": "http://102.5.140.254:6001/callback",
+                "Amount": amount,
+                "PartyA": phone,
+                "PartyB": "150839",
+                "PhoneNumber": phone,
+                "CallBackURL": "http://104.248.16.80:6001/callback",
                 "AccountReference": "Adiy.site",
-                "TransactionDesc": "Process Activation"
+                "TransactionDesc": "Template Payment"
             }
         },
         function(error,response,body){
@@ -286,11 +291,10 @@ app.post('/bal_timeout', (req, resp) => {
 
 function access(req,res,next){
     //access token
-
-    consumer_key = "8NbdeBC7wjfr8vGCtENGzBBBtIvkGR8j",
-        consumer_secret = "KGQA0VhdS8FeuuD8",
-        url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-    auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+        consumer_key = "G8jVW6rF5k5t3I8pYxa1zlXA73GpT1Jf",
+        consumer_secret = "XMoBx4jHu7mquxnL",
+        url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+        auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
 
     request(
         {
@@ -308,6 +312,7 @@ function access(req,res,next){
                 req.access_token = JSON.parse(body).access_token;
                 next()
             }
+            console.log(body);
 
         }
     )
