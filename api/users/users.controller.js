@@ -35,9 +35,9 @@ exports.emailVerify = (req,res, next)=>{
                 res.status(301).json("The user already exists, please ask for an account password reset code instead.");
             }
             else{
-            const code = (Math.random(7)*1000000).toFixed(0);
+            const code = (Math.random()*1000000).toFixed(0);
 
-            var user = new User({
+            let user = new User({
                 email: req.body.email,
                 reset_code: code,  
             });
@@ -49,7 +49,7 @@ exports.emailVerify = (req,res, next)=>{
                     }
                      
                     mailService.emailVerification(user).catch(e=>{
-                        console.log("THis error occured: "+e)
+                        console.log("This error occured: "+e)
                     });
                     res.status(200).json("A verification email has been sent to your email");
                 });
@@ -77,7 +77,7 @@ exports.resetPasswordCode = (req, res) =>{
              
 
             mailService.passwordResetCode(user).catch(e=>{
-                console.log("THis error occured: "+e)
+                console.log("This error occured: "+e)
             });
             res.status(200).json("A reset email has been sent to your email");
         }
@@ -93,7 +93,7 @@ exports.resetPass =(req, res) =>{
             res.status(404).json("User does not exist")
         }
         if(user){
-            if(req.body.reset_code == user.reset_code){
+            if(req.body.reset_code === user.reset_code){
                 
                 user.password = req.body.password;
                 user.reset_code = null
@@ -119,20 +119,22 @@ exports.resetPass =(req, res) =>{
         if(exists){
          User.findOne({email: req.body.email}, function(err, user){
              if(err){
-                 res.status(500).json("An error occured during registration");
+                 res.status(500).json("An error occurred during registration");
         }
-        if(user.reset_code == req.body.code){
+        if(user.reset_code === req.body.code){
              
             user.role = req.body.role,
             user.department = req.body.department,
             user.name = req.body.name,
             user.password = req.body.password,
-            user.reset_code = null
+            user.reset_code = null,
+                user.is_paid = false,
+                user.next_payment_date = Date.now(),
 
             user.save().then(function(result, err){
                 
                 if(err){
-                    res.status(500).json("An error occured");
+                    res.status(500).json("An error occurred");
                 }
                 res.status(200).json(result);
             })
@@ -163,6 +165,12 @@ exports.resetPass =(req, res) =>{
           .then((user)=> res.json(user))
           .catch(err => next(err));
   };
+
+exports.patch = (req, res, next) => {
+    userService.patch(req.params.id, req.body)
+        .then((user)=> res.json(user))
+        .catch(err => next(err));
+};
 
   exports.delete = (req, res, next) => {
       userService.delete(req.params.id)

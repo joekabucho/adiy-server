@@ -9,7 +9,9 @@ const User = new Schema({
     role: { type: String },
     department: { type: String },
     reset_code: {type: Number},
-    password: {  type: String}
+    password: {  type: String},
+    is_paid: {type: Boolean,default: false},
+    next_payment_date: { type: Date },
 });
 
 User.pre('save', function (next) {

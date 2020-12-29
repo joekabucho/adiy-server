@@ -1,5 +1,4 @@
 
-
 const fs = require('fs');
 const readline = require('readline');
 const fileUpload = require('express-fileupload');
@@ -12,12 +11,6 @@ const filesService = require('../services/files.service');
 var rimraf = require("rimraf");
 const jimp = require('jimp');
 
-
-
-
-
-
-
 exports.upload = (req, res, body) => {
 
         const details = {
@@ -28,7 +21,7 @@ exports.upload = (req, res, body) => {
             type: req.body.type,
             tags: req.body.tags,
             url: req.body.url,
-            filename: req.body.namefile,
+            filename: req.body.filename,
             artworkid:req.body.artworkid,
             date: new Date()
         }

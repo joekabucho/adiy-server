@@ -12,5 +12,6 @@ router.post("/resetpassword", controller.resetPass);
 router.post('/register', controller.create);
 router.put('/update/:id', controller.update);
 router.delete('/delete/:id', controller.delete);
+router.patch('/patch/:id',controller.patch);
 
 module.exports = router;
