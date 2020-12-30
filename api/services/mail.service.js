@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+let cron = require('node-cron');
+
  
  function sendMailToClient(reqParam){
     return new Promise((resolve, reject)=>{
@@ -172,6 +174,182 @@ function passwordResetCode(reqParam){
     });
 }
 
+function fiveDaysToExpiry(reqParam){
+    return new Promise((resolve, reject)=>{
+
+        let options = {
+            host: "smtp.gmail.com",
+            port: 465,
+            auth: {
+                user: 'help.adiy@gmail.com',
+                pass: '2020@diy'
+            }
+        }
+
+        let transporter = nodemailer.createTransport((options));
+
+        let email = {
+            from: 'help.adiy@gmail.com',
+            to: reqParam.email,
+            cc: 'mwangi.gicheru@gmail.com',
+            subject: "Account Expiry",
+            text: 'Hello',
+            html: `
+            <div style="border: 1px solid #ededed; border-radius: 4px; background-color: #ffffff; padding: 20px;">
+               <div style="background-color: #e0e0e0; text-align:center;">
+                    
+               </div>
+               <h2 style="text-transform: uppercase;"><strong>Your Adiy account has 5 days of subscription remaining! </strong></h2>
+               <hr>
+               <h2> ${reqParam.reset_code}</h2>
+               <hr>
+              <p>Thank you for partnering up with Adiy, we are happy to have you onboard.</p>
+              <img src="cid:unique@kreata.ee"/>
+           </div>
+    
+           <div style="text-align:center">
+   
+            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> For Inquiries:</p>
+            <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
+            </div>
+       </div>
+   </div>
+           <br>
+   `,
+            attachments: [{
+                filename: 'welcome.gif',
+                path: './welcome.gif',
+                cid: 'unique@kreata.ee' //same cid value as in the html img src
+            }]
+
+        };
+
+        transporter.sendMail(email, function (err, data) {
+            !err ? resolve() : reject(err);
+        });
 
 
- module.exports = { sendMailToClient, inviteUser, emailVerification, passwordResetCode }
+    });
+}
+
+function threeDaysToExpiry(reqParam){
+    return new Promise((resolve, reject)=>{
+
+        let options = {
+            host: "smtp.gmail.com",
+            port: 465,
+            auth: {
+                user: 'help.adiy@gmail.com',
+                pass: '2020@diy'
+            }
+        }
+
+        let transporter = nodemailer.createTransport((options));
+
+        let email = {
+            from: 'help.adiy@gmail.com',
+            to: reqParam.email,
+            cc: 'mwangi.gicheru@gmail.com',
+            subject: "Account Expiry",
+            text: 'Hello',
+            html: `
+            <div style="border: 1px solid #ededed; border-radius: 4px; background-color: #ffffff; padding: 20px;">
+               <div style="background-color: #e0e0e0; text-align:center;">
+                    
+               </div>
+               <h2 style="text-transform: uppercase;"><strong>Your Adiy account has 3 days of subscription remaining! </strong></h2>
+               <hr>
+               <h2> ${reqParam.reset_code}</h2>
+               <hr>
+              <p>Thank you for partnering up with Adiy, we are happy to have you onboard.</p>
+              <img src="cid:unique@kreata.ee"/>
+           </div>
+    
+           <div style="text-align:center">
+   
+            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> For Inquiries:</p>
+            <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
+            </div>
+       </div>
+   </div>
+           <br>
+   `,
+            attachments: [{
+                filename: 'welcome.gif',
+                path: './welcome.gif',
+                cid: 'unique@kreata.ee' //same cid value as in the html img src
+            }]
+
+        };
+
+        transporter.sendMail(email, function (err, data) {
+            !err ? resolve() : reject(err);
+        });
+
+
+    });
+}
+
+function dayOfExpiry(reqParam){
+    return new Promise((resolve, reject)=>{
+
+        let options = {
+            host: "smtp.gmail.com",
+            port: 465,
+            auth: {
+                user: 'help.adiy@gmail.com',
+                pass: '2020@diy'
+            }
+        }
+
+        let transporter = nodemailer.createTransport((options));
+
+        let email = {
+            from: 'help.adiy@gmail.com',
+            to: reqParam.email,
+            cc: 'mwangi.gicheru@gmail.com',
+            subject: "Account Expiry",
+            text: 'Hello',
+            html: `
+            <div style="border: 1px solid #ededed; border-radius: 4px; background-color: #ffffff; padding: 20px;">
+               <div style="background-color: #e0e0e0; text-align:center;">
+                    
+               </div>
+               <h2 style="text-transform: uppercase;"><strong>Your Adiy account expires today! </strong></h2>
+               <hr>
+               <h2> ${reqParam.reset_code}</h2>
+               <hr>
+              <p>Thank you for partnering up with Adiy, we are happy to have you onboard.</p>
+              <img src="cid:unique@kreata.ee"/>
+           </div>
+    
+           <div style="text-align:center">
+   
+            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> For Inquiries:</p>
+            <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
+            </div>
+       </div>
+   </div>
+           <br>
+   `,
+            attachments: [{
+                filename: 'welcome.gif',
+                path: './welcome.gif',
+                cid: 'unique@kreata.ee' //same cid value as in the html img src
+            }]
+
+        };
+
+        transporter.sendMail(email, function (err, data) {
+            !err ? resolve() : reject(err);
+        });
+
+
+    });
+}
+
+
+ module.exports = { sendMailToClient, inviteUser, emailVerification, passwordResetCode,fiveDaysToExpiry,threeDaysToExpiry,dayOfExpiry }

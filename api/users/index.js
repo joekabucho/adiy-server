@@ -13,5 +13,10 @@ router.post('/register', controller.create);
 router.put('/update/:id', controller.update);
 router.delete('/delete/:id', controller.delete);
 router.patch('/patch/:id',controller.patch);
+router.post('/sendMail', controller.sendMail);
+router.post('/sendFiveMail', controller.sendFiveMail);
+router.post('/sendThreeMail', controller.sendThreeMail);
+
+
 
 module.exports = router;

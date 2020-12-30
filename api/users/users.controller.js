@@ -84,6 +84,70 @@ exports.resetPasswordCode = (req, res) =>{
     })
 }
 
+exports.sendFiveMail = (req, res) =>{
+    User.findOne({email: req.body.email}, async function(err, user){
+        if(err){
+            res.status(500).json("An error occured")
+        }
+        if(!user){
+            res.status(404).json("User does not exist")
+        }
+        if(user){
+
+
+            await user.save();
+
+
+            mailService.fiveDaysToExpiry(user).catch(e=>{
+                console.log("This error occured: "+e)
+            });
+            res.status(200).json("A reset email has been sent to your email");
+        }
+    })
+}
+exports.sendThreeMail = (req, res) =>{
+    User.findOne({email: req.body.email}, async function(err, user){
+        if(err){
+            res.status(500).json("An error occured")
+        }
+        if(!user){
+            res.status(404).json("User does not exist")
+        }
+        if(user){
+
+
+            await user.save();
+
+
+            mailService.threeDaysToExpiry(user).catch(e=>{
+                console.log("This error occured: "+e)
+            });
+            res.status(200).json("A reset email has been sent to your email");
+        }
+    })
+}
+exports.sendMail = (req, res) =>{
+    User.findOne({email: req.body.email}, async function(err, user){
+        if(err){
+            res.status(500).json("An error occured")
+        }
+        if(!user){
+            res.status(404).json("User does not exist")
+        }
+        if(user){
+
+
+            await user.save();
+
+
+            mailService.sendMailToClient(user).catch(e=>{
+                console.log("This error occured: "+e)
+            });
+            res.status(200).json("A reset email has been sent to your email");
+        }
+    })
+}
+
 exports.resetPass =(req, res) =>{
     User.findOne({email: req.body.email},  function(err, user){
         if(err){
@@ -94,16 +158,16 @@ exports.resetPass =(req, res) =>{
         }
         if(user){
             if(req.body.reset_code === user.reset_code){
-                
+
                 user.password = req.body.password;
                 user.reset_code = null
 
                 res.status(200).json("Successful");
-                
+
             }else{
                 res.status(500).json("Reset code did not match")
             }
-          }
+        }
     })
 }
 
