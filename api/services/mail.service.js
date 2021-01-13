@@ -218,8 +218,8 @@ function fiveDaysToExpiry(reqParam){
            <br>
    `,
             attachments: [{
-                filename: 'welcome.gif',
-                path: './welcome.gif',
+                filename: 'five.png',
+                path: './five.png',
                 cid: 'unique@kreata.ee' //same cid value as in the html img src
             }]
 
@@ -277,8 +277,8 @@ function threeDaysToExpiry(reqParam){
            <br>
    `,
             attachments: [{
-                filename: 'welcome.gif',
-                path: './welcome.gif',
+                filename: 'three.png',
+                path: './three.png',
                 cid: 'unique@kreata.ee' //same cid value as in the html img src
             }]
 
@@ -336,8 +336,8 @@ function dayOfExpiry(reqParam){
            <br>
    `,
             attachments: [{
-                filename: 'welcome.gif',
-                path: './welcome.gif',
+                filename: 'one.png',
+                path: './one.png',
                 cid: 'unique@kreata.ee' //same cid value as in the html img src
             }]
 
