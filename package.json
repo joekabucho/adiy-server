@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.7",
+    "api": "^2.5.0",
     "compress-images": "^1.8.4",
     "node-image-resizer": "^1.0.0",
     "underscore": "^1.12.0",

@@ -97,7 +97,7 @@ function emailVerification(reqParam){
     
            <div style="text-align:center">
    
-            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> &copy; 2021 <a href="google.com">Adiy</a> </p>
             <p> For Inquiries:</p>
             <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
             </div>
@@ -156,7 +156,7 @@ function passwordResetCode(reqParam){
          
            <div style="text-align:center">
    
-            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> &copy; 2021 <a href="google.com">Adiy</a> </p>
             <p> For Inquiries:</p>
             <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
             </div>
@@ -209,7 +209,7 @@ function fiveDaysToExpiry(reqParam){
     
            <div style="text-align:center">
    
-            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> &copy; 2021 <a href="google.com">Adiy</a> </p>
             <p> For Inquiries:</p>
             <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
             </div>
@@ -267,8 +267,8 @@ function threeDaysToExpiry(reqParam){
            </div>
     
            <div style="text-align:center">
-   
-            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+  
+            <p> &copy; 2021 <a href="google.com">Adiy</a> </p>
             <p> For Inquiries:</p>
             <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
             </div>
@@ -292,7 +292,7 @@ function threeDaysToExpiry(reqParam){
     });
 }
 
-function dayOfExpiry(reqParam){
+function dayOfExpiry(){
     return new Promise((resolve, reject)=>{
 
         let options = {
@@ -308,7 +308,7 @@ function dayOfExpiry(reqParam){
 
         let email = {
             from: 'help.adiy@gmail.com',
-            to: reqParam.email,
+            to: 'joekabucho2@gmail.com',
             cc: 'mwangi.gicheru@gmail.com',
             subject: "Account Expiry",
             text: 'Hello',
@@ -327,7 +327,7 @@ function dayOfExpiry(reqParam){
     
            <div style="text-align:center">
    
-            <p> &copy; 2020 <a href="google.com">Adiy</a> </p>
+            <p> &copy; 2021 <a href="google.com">Adiy</a> </p>
             <p> For Inquiries:</p>
             <p> Phone: +254 794 619 062 | Email : info@adiy.com </p>
             </div>

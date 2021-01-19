@@ -193,7 +193,6 @@ exports.resetPass =(req, res) =>{
             user.password = req.body.password,
             user.reset_code = null,
                 user.is_paid = false,
-                user.next_payment_date = Date.now(),
 
             user.save().then(function(result, err){
                 
