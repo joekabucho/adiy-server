@@ -11,12 +11,12 @@ exports.login = (req, res, next) => {
     userService.authenticate(req.body)
         .then(user => user ? res.json(user) : res.status(401).json({ message: 'Email or password is incorrect' }))
         .catch(err => next(err));
- 
+
 };
 
 exports.emailVerify = (req,res, next)=>{
     //emailExistence.check(req.body.email, function(err, exists){
-        
+
         // if(err){
         //     console.log("Exists")
         //     res.status(500).json("An Error Occured");
@@ -39,15 +39,15 @@ exports.emailVerify = (req,res, next)=>{
 
             let user = new User({
                 email: req.body.email,
-                reset_code: code,  
+                reset_code: code,
             });
-            
+
             user.save(function(err, result) {
-        
+
                     if(err) {
                         return res.status(500).json(err);
                     }
-                     
+
                     mailService.emailVerification(user).catch(e=>{
                         console.log("This error occured: "+e)
                     });
@@ -55,7 +55,7 @@ exports.emailVerify = (req,res, next)=>{
                 });
             }
         });
-    //} 
+    //}
 //});
 
 }
@@ -70,11 +70,11 @@ exports.resetPasswordCode = (req, res) =>{
             res.status(404).json("User does not exist")
         }
         if(user){
-            
+
             user.reset_code = code;
 
             await user.save();
-             
+
 
             mailService.passwordResetCode(user).catch(e=>{
                 console.log("This error occured: "+e)
@@ -172,44 +172,27 @@ exports.resetPass =(req, res) =>{
 }
 
   exports.create = (req, res, next) => {
-    emailExistence.check(req.body.email, function(err, exists){
-        console.log(exists);
-        if(err){
-            res.status(500).json("An Error Occured");
-        }
-        if(!exists){
-            res.status(404).json("Email does not exist");
-        }
-        if(exists){
          User.findOne({email: req.body.email}, function(err, user){
              if(err){
                  res.status(500).json("An error occurred during registration");
         }
-        if(user.reset_code === req.body.code){
-             
+
+
             user.role = req.body.role,
             user.department = req.body.department,
             user.name = req.body.name,
             user.password = req.body.password,
-            user.reset_code = null,
-                user.is_paid = false,
+            user.reset_code = null
 
             user.save().then(function(result, err){
-                
+
                 if(err){
                     res.status(500).json("An error occurred");
                 }
                 res.status(200).json(result);
             })
-        }
-        else{
-            res.status(500).json("The account verification code did not match")
-            //user.delete();
-        }
-    })
-    }
-   })
-  };
+        });
+    };
 
   exports.getAll = (req, res, next) => {
       userService.getAll()

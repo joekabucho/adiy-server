@@ -6,11 +6,12 @@ let cron = require('node-cron');
     return new Promise((resolve, reject)=>{
 
         let options = {
-            host: "mail.adiy.site",
+            host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
-                pass: '2020@diy' 
+                pass: '2020@diy'
             }
         }
 
@@ -35,11 +36,12 @@ function inviteUser(reqParam){
     return new Promise((resolve, reject)=>{
 
         let options = {
-            host: "mail.adiy.site",
+            host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
-                pass: '2020@diy' 
+                pass: '2020@diy'
             }
         }
 
@@ -68,9 +70,10 @@ function emailVerification(reqParam){
         let options = {
             host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
-                pass: '2020@diy' 
+                pass: '2020@diy'
             }
         }
 
@@ -127,9 +130,10 @@ function passwordResetCode(reqParam){
         let options = {
             host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
-                pass: '2020@diy' 
+                pass: '2020@diy'
             }
         }
 
@@ -180,6 +184,7 @@ function fiveDaysToExpiry(reqParam){
         let options = {
             host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
                 pass: '2020@diy'
@@ -239,6 +244,7 @@ function threeDaysToExpiry(reqParam){
         let options = {
             host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
                 pass: '2020@diy'
@@ -298,6 +304,7 @@ function dayOfExpiry(){
         let options = {
             host: "smtp.gmail.com",
             port: 465,
+            secure: true,
             auth: {
                 user: 'help.adiy@gmail.com',
                 pass: '2020@diy'
