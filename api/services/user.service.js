@@ -1,4 +1,4 @@
-const Secret = require('../../config/dev').Secret;
+const JWTsecret = require('../../config/dev').JWTsecret;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
 const User = require('../users/users.model');
@@ -8,12 +8,13 @@ async function authenticate({ email, password }) {
     const user = await User.findOne({ email });
     if (user && bcrypt.compareSync(password, user.password)) {
         const {password, ...userWithoutPassword } = user.toObject();
-        const token = jwt.sign({ sub: user.id }, Secret);
+        const token = jwt.sign({ sub: user.id, exp: 1614675206 }, JWTsecret);
         return {
             ...userWithoutPassword,
             token
         };
     }
+
 }
 
 // Create New User
