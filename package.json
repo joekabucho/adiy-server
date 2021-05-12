@@ -32,7 +32,7 @@
     "multer": "^1.4.2",
     "node-cron": "^2.0.3",
     "node-restful": "^0.2.6",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.4",
     "pdf2html": "^2.5.0",
     "pngquant-bin": "^6.0.0",
